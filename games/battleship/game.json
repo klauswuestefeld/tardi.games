@@ -1,0 +1,8 @@
+{
+  "title": "Battleship",
+  "description": "Place your fleet, call your shots, and sink the enemy ships.",
+  "players": {
+    "min": 2,
+    "max": 2
+  }
+}
