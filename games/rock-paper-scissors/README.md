@@ -1,9 +1,11 @@
-# Tic-Tac-Toe — a minimal Tardi game
+# Rock-Paper-Scissors — a minimal Tardi game
 
-A minimal, complete Tardi game you can fork to build your own. It is two-player
-tic-tac-toe in a few small files, and it shows the whole shape of a Tardi game:
-a **table** (the TV display), a **hand** (each player's controller), and
-**shared** modules used by both.
+A minimal, complete Tardi game you can fork to build your own. Two players throw
+at the same time; each hand keeps its throw secret until both are in, and the
+table reveals them and keeps score. First to 3 round wins takes the match.
+
+It shows the whole shape of a Tardi game: a **table** (the TV display), a
+**hand** (each player's controller), and **shared** modules used by both.
 
 ## Layout
 
@@ -12,10 +14,10 @@ game.json            title, description, player count
 assets/thumbnail.png 512x512
 src/
   table.js           the TV display: owns the game state
-  hand.js            a player's controller: renders and sends taps
+  hand.js            a player's controller: renders and sends throws
   shared/
-    tic-tac-toe-rules.js  game rules (winner, draw) — used by table AND hand
-    board.js              the responsive 3x3 board UI — used by table AND hand
+    rps-rules.js       game rules (what beats what) — used by table AND hand
+    arena.js           the responsive score + hands UI — used by table AND hand
 dev/index.html       local test harness (one table + two hands)
 hand.js, table.js    Build outputs. Must be committed.
 ```
@@ -59,7 +61,8 @@ npm run dev
 
 This serves `dev/index.html`: one table and two hands side by side, wired
 together exactly like the Tardi platform but with no PeerJS or lobby. Open it,
-play both hands, and watch the table.
+play both hands, and watch the table. Throw from each hand: the table shows a
+`?` for a throw that is in but not yet revealed, then reveals both.
 
 ## Make it yours
 
