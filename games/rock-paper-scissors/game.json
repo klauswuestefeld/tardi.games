@@ -4,5 +4,6 @@
   "players": {
     "min": 2,
     "max": 2
-  }
+  },
+  "sharedScreen": "optional"
 }
