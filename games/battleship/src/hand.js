@@ -1,4 +1,4 @@
-import { joinMatch, sendToTable } from '@juxhouse/tardi-core/hand'
+import * as TardiHand from '@juxhouse/tardi-core/hand'
 import { createBoardElement } from './shared/battleship-core.js'
 
 (function () {
@@ -270,7 +270,7 @@ import { createBoardElement } from './shared/battleship-core.js'
   root.style.overflow = 'hidden'
   document.body.replaceChildren(root)
 
-  joinMatch({
+  TardiHand.joinMatch({
     onStateChange: handleStateChange,
   })
 
@@ -294,7 +294,7 @@ import { createBoardElement } from './shared/battleship-core.js'
 
     renderBattleshipPlayerView(root, latestState, {
       sendToTable: function (message) {
-        sendToTable(message)
+        TardiHand.sendToTable(message)
       },
     })
   }

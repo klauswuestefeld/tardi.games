@@ -1,4 +1,4 @@
-import { joinMatch, sendToTable } from '@juxhouse/tardi-core/hand'
+import * as TardiHand from '@juxhouse/tardi-core/hand'
 import { SYMBOLS, HIDDEN, TARGET, compare, label } from './shared/rps-rules.js'
 import { mountArena } from './shared/arena.js'
 
@@ -12,7 +12,7 @@ var pickedRound = 0
 
 var update = mountArena(document.body, onThrow)
 
-joinMatch({ onStateChange: onStateChange })
+TardiHand.joinMatch({ onStateChange: onStateChange })
 render()
 
 function onStateChange(envelope) {
@@ -27,7 +27,7 @@ function onThrow(move) {
   picked = move
   pickedRound = state.round
   render()
-  sendToTable(move)
+  TardiHand.sendToTable(move)
 }
 
 function canPick() {

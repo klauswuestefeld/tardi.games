@@ -1,4 +1,4 @@
-import { startMatch, sendToAllHands, endMatch } from '@juxhouse/tardi-core/table'
+import * as TardiTable from '@juxhouse/tardi-core/table'
 import { createGame, createBoardElement, updateBoardElement } from './shared/battleship-core.js'
 
 (function () {
@@ -190,7 +190,7 @@ import { createGame, createBoardElement, updateBoardElement } from './shared/bat
   document.body.replaceChildren(root)
   root.append(view.wrap)
 
-  startMatch({
+  TardiTable.startMatch({
     onMessage: handleMessage,
     onPlayersChange: handlePlayersChange,
   })
@@ -377,7 +377,7 @@ import { createGame, createBoardElement, updateBoardElement } from './shared/bat
       playerStatesById[player.id] = game.getPlayerState(player.id, latestPlayers)
     }
 
-    sendToAllHands({
+    TardiTable.sendToAllHands({
       tableState: latestState,
       playerStatesById: playerStatesById,
     })
@@ -392,7 +392,7 @@ import { createGame, createBoardElement, updateBoardElement } from './shared/bat
     }
 
     latestWinnerId = winnerId
-    endMatch({ victor: winnerId })
+    TardiTable.endMatch({ victor: winnerId })
   }
 
   function normalizePlayers(players) {

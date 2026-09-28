@@ -1,4 +1,4 @@
-import { startMatch, sendToAllHands, endMatch } from '@juxhouse/tardi-core/table'
+import * as TardiTable from '@juxhouse/tardi-core/table'
 import { SYMBOLS, HIDDEN, TARGET, compare, isMove, label } from './shared/rps-rules.js'
 import { mountArena } from './shared/arena.js'
 
@@ -15,7 +15,7 @@ var over = false
 
 var update = mountArena(document.body, null)
 
-startMatch({ onMessage: onPick, onPlayersChange: onPlayers })
+TardiTable.startMatch({ onMessage: onPick, onPlayersChange: onPlayers })
 render()
 
 function onPlayers(info) {
@@ -55,7 +55,7 @@ function resolve() {
     over = true
     render()
     broadcast()
-    endMatch({ victor: players[champion].playerId })
+    TardiTable.endMatch({ victor: players[champion].playerId })
   } else {
     render()
     broadcast()
@@ -72,7 +72,7 @@ function nextRound() {
 }
 
 function broadcast() {
-  sendToAllHands({
+  TardiTable.sendToAllHands({
     phase: phase,
     round: round,
     scores: scores,
