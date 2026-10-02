@@ -1,9 +1,6 @@
 {
   "title": "Rock-Paper-Scissors",
   "description": "Throw at the same time. First to 3 wins the match.",
-  "players": {
-    "min": 2,
-    "max": 2
-  },
+  "players": [2],
   "sharedScreen": "optional"
 }
